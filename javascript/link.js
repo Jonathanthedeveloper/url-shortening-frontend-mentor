@@ -107,4 +107,4 @@ function setLinkStatus(e){
 }
 
 
-localStorage.clear()
+// localStorage.clear()
