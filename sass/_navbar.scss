@@ -1,0 +1,140 @@
+.navbar {
+  background-color: var(--White);
+  display: flex;
+  padding: 3rem 10rem;
+  align-items: center;
+  @media only screen and (max-width: $bp-large) {
+    padding: 3rem 6rem;
+  }
+
+  .logo {
+    margin-right: 5rem;
+    transform: translateY(0.5rem);
+
+    @media only screen and (max-width: $bp-small) {
+     margin-right: auto;
+    }
+    svg {
+      fill: #34313d;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    @media only screen and (max-width: $bp-small) {
+      display: block;
+      // height: 3rem;
+      border-radius: 0;
+      border: 0;
+      height: 3rem;
+      width: 3rem;
+      background-color: transparent;
+      transition: all .5s;
+
+      span {
+        display: block;
+        width: 3rem;
+        height: 1px;
+        background-color: red;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background-color: blue;
+        
+        }
+
+        &::before {
+          transform: translateY(-1rem);
+        }
+        &::after {
+          transform: translateY(1rem);
+        }
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+
+  &__rule {
+    display: none;
+
+    @media only screen and (max-width: $bp-small) {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      border: none;
+      background-color: white;
+      height: 0.5px;
+    }
+  }
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 1;
+
+    @media only screen and (max-width: $bp-small) {
+      position: fixed;
+      background-color: var(--Dark-Violet);
+      top: 10.8rem;
+      width: 80%;
+      margin: 0 auto;
+      color: var(--White);
+      padding: 3rem;
+      flex-direction: column;
+      border-radius: 1rem;
+      z-index: 3;
+
+
+    }
+
+
+
+    &-item {
+      margin-right: 3rem;
+      @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        padding: 1rem 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      &:nth-of-type(3) {
+        margin-right: auto;
+
+        position: relative;
+        @media only screen and (max-width: $bp-small) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--Grayish-Violet);
+    font-weight: 500;
+
+    @media only screen and (max-width: $bp-small) {
+      color: var(--White);
+      font-weight: 700;
+      font-size: 1.8rem;
+      width: 100%;
+    }
+  }
+}

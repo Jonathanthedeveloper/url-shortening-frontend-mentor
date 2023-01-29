@@ -1,0 +1,50 @@
+.btn {
+  background-color: var(--Cyan);
+  color: var(--White) !important;
+  padding: 1rem 2rem;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--rounded {
+    border-radius: 10rem;
+  }
+
+  &--block {
+    border-radius: 0.5rem;
+  }
+}
+.align-center {
+  text-align: center;
+}
+
+.copied {
+  background-color: var(--Dark-Violet);
+}
+
+.clicked {
+  span {
+    background-color: var(--White);
+
+    &::before,
+    &::after {
+      transform: translateY(0);
+    }
+    &::before {
+      transform: rotate(45deg) translateY(0);
+    }
+    &::after {
+      transform: rotate(-45deg) translateY(0);
+    }
+  }
+}
+
+.hide-overlay {
+  display: none;
+}
+
+.hide-navbar {
+  @media only screen and (max-width: $bp-small) {
+    display: none;
+  }
+}
