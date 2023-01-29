@@ -51,8 +51,8 @@ async function fetchJson(url) {
     try {
 
         const response = await fetch(url)
-        
-if(!response.ok) throw new Error(`❌❌❌ ${response.status}`)
+
+        if (!response.ok) throw new Error(`❌❌❌ ${response.status}`)
 
         const data = await response.json()
         return data;
@@ -64,7 +64,7 @@ if(!response.ok) throw new Error(`❌❌❌ ${response.status}`)
 function displayLink(link) {
     const html = `
     <div class="link">
-        <p class="original__link">${link.original_link.length > 100 ? link.original_link.subString(0, 100): link.original_link}</p>
+        <p class="original__link">${link.original_link.length > 100 ? link.original_link.subString(0, 100) : link.original_link}</p>
         <p class="shortened__link">${link.shortenedLink}</p>
         <button class="btn btn--block ">Copy</button>
     </div>
@@ -87,20 +87,27 @@ function renderLinks() {
 
         `
     }).join("")
-    
+
     linkContainer.insertAdjacentHTML('afterbegin', html)
 }
 
 
 
-function setLinkStatus(e){
+function setLinkStatus(e) {
 
     const btn = e.target;
-    if(!btn.classList.contains('copy')) return 
+    if (!btn.classList.contains('copy')) return
     e.preventDefault()
+
+  const copiedLink = btn.previousElementSibling.textContent
     
-    btn.classList.add('copied');
-    btn.textContent = "Copied"
+
+    navigator.clipboard.writeText(copiedLink).then(() => {
+
+        btn.classList.add('copied');
+        btn.textContent = "Copied"
+
+    })
 
 
 
